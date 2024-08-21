@@ -14,7 +14,7 @@
 }
 
 .header > span {
-  cursor: not-allowed;
+  cursor: pointer;
   width: 44px;
   height: 44px;
   display: inline-flex;
@@ -44,4 +44,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.disableDay {
+  cursor: not-allowed;
 }

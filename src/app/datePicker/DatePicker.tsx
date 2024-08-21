@@ -4,9 +4,11 @@ import dayjs from "dayjs";
 function DatePicker() {
   const dateObj = dayjs(); // 0- 星期天
 
-  const daysInMonth = dateObj.daysInMonth(); // 當月天數
+  // const daysInMonth = dateObj.daysInMonth(); // 當月天數
 
-  const firstWeekStartDay = dateObj.startOf("month").startOf("week");
+  const firstDayThisMonth = dateObj.startOf("month");
+  const lastDayThisMonth = dateObj.endOf("month");
+  const firstWeekStartDay = firstDayThisMonth.startOf("week");
 
   const daysArray = [];
   for (let i = 0; i < 35; i++) {
@@ -24,7 +26,14 @@ function DatePicker() {
       </div>
       <div className={style.dates}>
         {daysArray.map((el) => (
-          <div key={el.format("YYMMDD")} className={style.day}>
+          <div
+            key={el.format("YYMMDD")}
+            className={`${style.day} ${
+              el.isBefore(firstDayThisMonth) || el.isAfter(lastDayThisMonth)
+                ? style.disableDay
+                : ""
+            }`}
+          >
             {el.format("D")}日
           </div>
         ))}

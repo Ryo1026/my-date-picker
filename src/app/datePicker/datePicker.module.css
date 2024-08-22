@@ -2,6 +2,8 @@
   font-size: 16px;
   width: 350px;
   height: 240px;
+  background: white;
+  color: black;
 }
 
 .header {
@@ -44,8 +46,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.15s;
+}
+
+.day:hover {
+  background: #e6e6e6;
+}
+
+.today {
+  background-color: #ffff76;
+}
+
+.period {
+  background-color: #006edc;
 }
 
 .disableDay {
   cursor: not-allowed;
+  color: #757575;
 }
